@@ -28,6 +28,11 @@
                 overflow: hidden;
                 
             }
+            .menu {
+               list-style-type: none;
+               padding: 0;
+               margin-bottom: 20px;
+            }
             
 </style>      
 </head>
@@ -42,6 +47,8 @@
           <li><a href="">学生追加</a><br></li>
           <li><a href="">学生情報変更</a><br></li>
           <li><a href="">学生削除</a><br></li>
+           <!-- 他のメニューアイテムを必要に応じて追加 -->
+           <li><a href="logout.jsp">ログアウト</a></li>
         </ul>
       </div>
   </body>
