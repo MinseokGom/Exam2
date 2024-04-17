@@ -19,17 +19,24 @@ public class Teacher implements java.io.Serializable {
 		return password;
 	}
 	
-	public School get school() {
-		return
+	public School getschool() {
+		return school;
 	}
 	
 	public void setId(int id) {
 		this.id=id;
 	}
 	
-	public void setLogin(String password) {
+	public void setLogin(String login) {
+		this.login=login;
+	}
+	
+	public void setPassword(String password) {
 		this.password=password;
 	}
 	
-	public void 
+	public void setSchool(Strnig school) {
+		this.school=school;
+	}
+	
 }
