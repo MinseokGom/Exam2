@@ -23,7 +23,7 @@ public class LoginAction extends Action{
 			return "login-out.jsp";
 		}
 		
-		return "login-error.jsp"
+		return "login-error.jsp";
 		
 	}
 	
