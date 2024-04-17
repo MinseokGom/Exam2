@@ -1,9 +1,9 @@
 package tool;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import tool.Action;
+import bean.Teacher;
+import dao.TeacherDAO;
+import tool.action;
+import jakarta.servlet.http.*;
 
 //ActionにLoginActionを継承する
 public class LoginAction extends Action{
