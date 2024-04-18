@@ -2,7 +2,6 @@ package dao;
 
 import bean.Teacher;
 import java.sql.Connection;
-import java.sql.PerparedStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
