@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>学生管理システム</title>
 <style>
@@ -25,14 +25,17 @@
 </style>
 </head>
 <body>
-  <div class="header">
-    <h1>得点管理システム</h1>
-    <h2>名前</h2>
-      <nav id="global_navi">
-	  <ul>
-		  <li class="logout"><a href="index.html">ログアウト</a></li>
-	  </ul>
-  </nav>
+<%-- ログイン後のユーザ名とログアウトリンクを表示 --%>
+<header>
+  <h1>得点管理システム</h1>
+  <div id="user-info">
+    <%-- ユーザ名を表示 --%>
+    <span id="username">
+      <%= request.getUserPrincipal().getName() %>
+    </span>
+    <%-- ログアウトリンク --%>
+    <a href="logout.jsp" id="logout">ログアウト</a>
   </div>
+</header>
 </body>
 </html>
