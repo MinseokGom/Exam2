@@ -1,9 +1,9 @@
+package tool;
 
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import bean.Teacher;
+import dao.TeacherDAO;
 import tool.Action;
+import jakarta.servlet.http.*;
 
 //ActionにLoginActionを継承する
 public class LoginAction extends Action{
@@ -23,7 +23,7 @@ public class LoginAction extends Action{
 			return "login-out.jsp";
 		}
 		
-		return "login-error.jsp"
+		return "login-error.jsp";
 		
 	}
 	
