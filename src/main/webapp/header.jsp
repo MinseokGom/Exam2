@@ -26,16 +26,9 @@
 </head>
 <body>
 <%-- ログイン後のユーザ名とログアウトリンクを表示 --%>
-<header>
+<header class="header">
   <h1>得点管理システム</h1>
-  <div id="user-info">
-    <%-- ユーザ名を表示 --%>
-    <span id="username">
-      <%= request.getUserPrincipal().getName() %>
-    </span>
-    <%-- ログアウトリンク --%>
-    <a href="logout.jsp" id="logout">ログアウト</a>
-  </div>
+
 </header>
 </body>
 </html>
