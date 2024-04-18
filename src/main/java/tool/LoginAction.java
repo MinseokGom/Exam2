@@ -3,7 +3,7 @@ package tool;
 import bean.Teacher;
 import dao.TeacherDAO;
 import tool.Action;
-import jakarta.servlet.http.*;
+import java.servlet.http.*;
 
 //ActionにLoginActionを継承する
 public class LoginAction extends Action{

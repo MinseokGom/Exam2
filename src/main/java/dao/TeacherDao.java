@@ -1,13 +1,13 @@
 package dao;
 
-import bean.Customer;
+import bean.Teacher;
 import java.sql.Connection;
 import java.sql.PerparedStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class TeacherDao extends DAO {
-	public Customer search(String login, String passwrd)
+	public Teacher search(String login, String password)
 	    throws Exception {
 		Teacher teacher=null;
 		
