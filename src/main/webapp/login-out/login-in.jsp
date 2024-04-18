@@ -1,10 +1,10 @@
 <%@page contentType="text/html; charset=UTF-8"%>
-<%@include file="../header.jsp" %>
+<%@include file="../header.html" %>
 
-<form action="tool/Login.action" method="post">
+<form action="LoginExecuteAction.java" method="post">
 <p>ログイン名<input type="text" name="login"></p>
 <p>パスワード<input type="password" name="password"></p>
 <p><input type="submit"  value="ログイン"></p>
 </form>
 
-<%@include file="../footer.jsp" %>
+<%@include file="../footer.html" %>
