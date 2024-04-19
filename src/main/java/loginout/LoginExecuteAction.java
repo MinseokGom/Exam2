@@ -1,12 +1,14 @@
-package tool;
+package loginout;
 
 import bean.Teacher;
 import dao.TeacherDAO;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import tool.Action;
-import java.servlet.http.*;
 
 //ActionにLoginActionを継承する
-public class LoginAction extends Action{
+public class LoginExecuteAction extends Action{
 	public String execute(
 			HttpServletRequest request, HttpServletResponse response
 			)throws Exception {
