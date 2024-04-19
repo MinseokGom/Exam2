@@ -20,4 +20,4 @@ public class School implements java.io.Serializable{
 	public void setName(School name) {
 		this.name=name;
 	}
-}
+}    
