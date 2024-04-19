@@ -3,7 +3,7 @@ package bean;
 public class Teacher implements java.io.Serializable {
    
 	private int id;
-	private String login;
+	private String name;
 	private String password;
 	private School school;
 	
@@ -11,15 +11,15 @@ public class Teacher implements java.io.Serializable {
 		return id ;
 	}
 	
-	public String getLogin() {
-		return login ;
+	public String getName() {
+		return name;
 	}
 	
 	public String getPassword() {
 		return password;
 	}
 	
-	public School getschool() {
+	public School getSchool() {
 		return school;
 	}
 	
@@ -27,8 +27,8 @@ public class Teacher implements java.io.Serializable {
 		this.id=id;
 	}
 	
-	public void setLogin(String login) {
-		this.login=login;
+	public void setName(String name) {
+		this.name=name;
 	}
 	
 	public void setPassword(String password) {
