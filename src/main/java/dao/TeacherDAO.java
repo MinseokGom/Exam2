@@ -22,7 +22,7 @@ public class TeacherDAO extends DAO {
         st.setString(2, password);
         ResultSet rs = st.executeQuery();
         
-        if (rs.next()) { // 結果セットが空でない場合のみ処理
+        if (rs.next()) { // 結果セットが空でない場合のみ処理する
             teacher.setId(rs.getString("id"));
             teacher.setName(rs.getString("name"));
             teacher.setPassword(rs.getString("password"));
