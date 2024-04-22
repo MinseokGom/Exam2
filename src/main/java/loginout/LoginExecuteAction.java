@@ -24,8 +24,10 @@ public class LoginExecuteAction extends Action{
 			session.setAttribute("teacher",teacher);
 			return "login-out.jsp";
 		}
+		else {
+			return "login-error.jsp";
+		}
 		
-		return "login-error.jsp";
 		
 	}
 	
