@@ -21,3 +21,4 @@ public class School implements java.io.Serializable{
 		this.name=name;
 	}
 }    
+
