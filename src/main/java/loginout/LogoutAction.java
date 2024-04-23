@@ -9,7 +9,7 @@ public class LogoutAction extends Action {
     		HttpServletRequest request, HttpServletResponse response
     		)throws Exception{
     	
-    	return "logout-in.jsp";
+    	return "logout-out.jsp";
     }
     
 }
