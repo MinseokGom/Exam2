@@ -4,21 +4,19 @@
 <%@page pageEncoding="UTF-8" %>
 <%@include file="../header.jsp" %>   
 
-<head>
 
-</head>
-  
 <body>
       
         <h3>メニュー</h3>
-        <h2>学生管理</h2>
+        
         <ul>
-          <li><a href="">学生管理</a></li>
-          <li><a href="">学生追加</a><br></li>
-          <li><a href="">学生情報変更</a><br></li>
-          <li><a href="">学生削除</a><br></li>
+          <a href="">学生管理</a>
+          <li><a href=""></a>成績管理<br></li>
+          <a href="">成績登録</a><br>
+          <a href="">成績参照</a><br>
+          <a href="">科目管理</a>
            <!-- 他のメニューアイテムを必要に応じて追加 -->
-           <li><a href="logout.jsp">ログアウト</a></li>
+          <li><a href="loginout/logout-in.jsp">ログアウト</a></li>
         </ul>
       
   </body>

@@ -2,6 +2,7 @@
 <%@include file="../header.jsp" %>
 <%@include file="menu.jsp" %>
 
+
 <div>
         <h2>Topページ</h2><br>
         <p>学生とコースの管理をするシステムです。</p><br>

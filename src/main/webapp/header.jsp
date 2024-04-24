@@ -28,7 +28,7 @@
 <%-- ログイン後のユーザ名とログアウトリンクを表示 --%>
 <header class="header">
   <h1>得点管理システム</h1>
-
+      ${teacher.name}様
 </header>
 </body>
 </html>

@@ -22,7 +22,7 @@ public class LoginExecuteAction extends Action{
 		
 		if (teacher!=null) {
 			session.setAttribute("teacher",teacher);
-			return "login-out.jsp";
+			return "../menu.jsp";
 		}
 		else {
 			return "login-error.jsp";
