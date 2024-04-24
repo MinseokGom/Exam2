@@ -1,13 +1,10 @@
 package bean;
 
 //まだ未完成
-public class Item implements java.io.Serializable{
+public class Util implements java.io.Serializable{
 	
-	private Product product;
-	private int count;
-	
-	public Product getUser() {
-		return product;
+	public Teacher getUser() {
+		return ;
 	}
 	
 	public int setClassNumSet() {
