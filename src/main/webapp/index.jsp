@@ -1,6 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8" %>
-<%@include file="../header.html" %>
+<%@include file="../header.jsp" %>
 <%@include file="menu.jsp" %>
+
 
 <div>
         <h2>Topページ</h2><br>
@@ -8,4 +9,4 @@
         <p>左のメニューから、各機能を選択してください。</p>
         
 </div>  
-<%@include file="../footer.html" %>
+<%@include file="../footer.jsp" %>

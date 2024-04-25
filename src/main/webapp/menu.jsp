@@ -2,56 +2,25 @@
 <html>
 
 <%@page pageEncoding="UTF-8" %>
-   
+<%@include file="../header.jsp" %>   
 
-<head>
-<meta charset="UTF-8">
- <style>
-            .container {
-                display: flex;
-                width: 100%;
-                
-            }
-            .sidebar {
-                width: 15%;
-                height:800px;
-                border-right: 2px #000 solid;
-                
-            }
-            .body {
-                height:800px;
-                text-align: center;
-                color: #fff;
-                width: 980px;
-                margin-left: auto;
-                margin-right: auto;
-                overflow: hidden;
-                
-            }
-            .menu {
-               list-style-type: none;
-               padding: 0;
-               margin-bottom: 20px;
-            }
-            
-</style>      
-</head>
-  
+
 <body>
-    <div class="container">
-      <div class="sidebar">
+      
         <h3>メニュー</h3>
-        <h2>学生管理</h2>
+        
         <ul>
-          <li><a href="../1/test.jsp">学生一覧表示</a></li>
-          <li><a href="">学生追加</a><br></li>
-          <li><a href="">学生情報変更</a><br></li>
-          <li><a href="">学生削除</a><br></li>
+          <a href="">学生管理</a>
+          <li><a href="../test_regist.jsp"></a>成績管理<br></li>
+          <a href="">成績登録</a><br>
+          <a href="">成績参照</a><br>
+          <a href="">科目管理</a>
            <!-- 他のメニューアイテムを必要に応じて追加 -->
-           <li><a href="logout.jsp">ログアウト</a></li>
+          <li><a href="loginout/logout-in.jsp">ログアウト</a></li>
         </ul>
-      </div>
+      
   </body>
+  <%@include file="../footer.jsp" %>
 </html>
 
 
