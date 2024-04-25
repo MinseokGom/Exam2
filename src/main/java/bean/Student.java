@@ -4,8 +4,11 @@ public class Student implements java.io.Serializable {
    
 	private String no;
 	private String name;
-	private int ent_year;
-	private String class_num;
+	private int entyear;
+	private String classnum;
+	private boolean attend;
+	private School school;
+	private int schoolyear;
 	
 	public String getNo() {
 		return no ;
@@ -15,28 +18,48 @@ public class Student implements java.io.Serializable {
 		return name;
 	}
 	
-	public int getEnt_year() {
-		return ent_year;
+	public int getEntYear() {
+		return entyear;
 	}
-//	ここまで出来た
+	
+	public String getClassNum() {
+		return classnum;
+	}
+	
+	public boolean isAttend() {
+		return attend;
+	}
+	
 	public School getSchool() {
 		return school;
 	}
 	
-	public void setId(String id) {
-		this.id=id;
+	public School getSchoolYear() {
+		return school;
 	}
+//	ここまで出来た
 	
 	public void setName(String name) {
 		this.name=name;
 	}
 	
-	public void setPassword(String password) {
-		this.password=password;
+	public void setNo(String no) {
+		this.no=no;
+	}
+	
+	public void setEntYear(Int entYear) {
+		this.entyear=entyear;
+	}
+	
+	public void setClassNum(String classNum) {
+		this.classnum=classnum;
+	}
+	
+	public void setAttend(Boolean attend) {
+		this.attend=attend;
 	}
 	
 	public void setSchool(School school) {
 		this.school=school;
 	}
-	
 }
