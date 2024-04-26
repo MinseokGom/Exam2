@@ -1,3 +1,4 @@
+
 package loginout;
 
 import bean.Teacher;
@@ -26,7 +27,9 @@ public class LoginExecuteAction extends Action{
 		}
 		else {
 			return "login-error.jsp";
-	}
-	}
-	}
+		}
+
+  
+}
+}
 
