@@ -8,8 +8,8 @@ public class Test {
 	private String classNum;
 	private Subject subject;
 	private School school;
-	private int no;
-	private int point;
+	private Int no;
+	private Int point;
 	
 	public Student getStudent() {
 		return student;
@@ -25,6 +25,14 @@ public class Test {
 	
 	public School getSchool() {
 		return school;
+	}
+	
+	public Int getNo() {
+		return no;
+	}
+	
+	public Int getPoint() {
+		return point;
 	}
 	
 }
