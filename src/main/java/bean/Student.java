@@ -5,10 +5,10 @@ public class Student implements java.io.Serializable {
 	private String no;
 	private String name;
 	private int entyear;
-	private String classnum;
-	private boolean attend;
+	private String classNum;
+	private Boolean attend;
 	private School school;
-	private int schoolyear;
+	private int schoolYear;
 	
 	public String getNo() {
 		return no ;
@@ -23,7 +23,7 @@ public class Student implements java.io.Serializable {
 	}
 	
 	public String getClassNum() {
-		return classnum;
+		return classNum;
 	}
 	
 	public boolean isAttend() {
@@ -47,12 +47,12 @@ public class Student implements java.io.Serializable {
 		this.no=no;
 	}
 	
-	public void setEntYear(Int entYear) {
+	public void setEntyear(int entYear) {
 		this.entyear=entyear;
 	}
 	
 	public void setClassNum(String classNum) {
-		this.classnum=classnum;
+		this.classum=classnum;
 	}
 	
 	public void setAttend(Boolean attend) {
