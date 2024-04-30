@@ -9,7 +9,7 @@ public class Student implements java.io.Serializable {
 	private boolean attend;
 	private School school;
 	
-	
+//	あいうえお
 	public String getNo() {
 		return no ;
 	}
