@@ -1,8 +1,6 @@
 package bean;
 
-import javax.security.auth.Subject;
-
-public class Test {
+public class Test implements java.io.Serializable{
 
 	private Student student;
 	private String classNum;
