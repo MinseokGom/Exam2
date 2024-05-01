@@ -1,7 +1,6 @@
 package bean;
 
-
-public class Test  implements java.io.Serializable{
+public class Test implements java.io.Serializable{
 
 	private Student student;
 	private String classNum;
