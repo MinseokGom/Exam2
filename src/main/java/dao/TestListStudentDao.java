@@ -7,10 +7,11 @@ import java.util.List;
 import bean.Student;
 import bean.TestListStudent;
 
+
 public class TestListStudentDao extends DAO{
     private String baseSql;
     //list<TestListStudent>
-    public List<TestListStudent> postFilter(Set<ResultSet>resultSet){
+    public List<TestListStudent> PostFilter(set<ResultSet>resultSet){
     	//postFilter メソッドの実装
     	return new ArrayList<>();
     }
