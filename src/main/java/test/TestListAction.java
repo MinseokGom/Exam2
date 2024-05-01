@@ -1,30 +1,24 @@
 package test;
 
 
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import tool.Action;
-import dao.DAO;
-import dao.TestListStudentDao;
-import bean.School;
-import bean.Subject;
-
-
-
 
 public class TestListAction extends Action{
-	public void execute (
-		HttpServletRequest request, HttpServletResponse response
-			)throws Exception{
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
+		
 	}
-    public void setTestListSubject {
-	    HttpServletRequest request, HttpServletResponse response
-	        )throws Exception{
+	
+	public void setTestListSubject(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException{
+		
 	}
-	public void setTestListStudent{
-		HttpServletRequest request, HttpServletResponse response
-		    )throws Exception{
+	
+	public void setTestListStudent(HttpServletRequest req ,HttpServletResponse res)throws ServletException,IOException{
+		
 	}
-
 }

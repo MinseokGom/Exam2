@@ -8,7 +8,7 @@ import bean.Student;
 import bean.TestListStudent;
 
 
-public class TestListStudentDao extends DAO{
+public class TestListStudentDAO extends DAO{
     private String baseSql;
     //list<TestListStudent>
     public List<TestListStudent> PostFilter(set<ResultSet>resultSet){
