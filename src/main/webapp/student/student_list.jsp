@@ -9,13 +9,11 @@
 <%@ page import="java.util.ArrayList" %>
 
     <h1>Student List</h1>
-    <table border="1">
+    <table border="2">
         <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
+            <th>Student ID</th>
+            <th>Name</th>
+
         </tr>
         <%@ page import="java.util.List" %>
         <%@ page import="dao.StudentDAO" %>
@@ -33,12 +31,9 @@
             for (Student student : students) {
         %>
                 <tr>
-                	<td>${product.name}</td>
-                    <td>${ student.getId}</td>
-                    <td>${ student.getName}</td>
-                    <td>${ student.getAge}</td>
-                    <td>${ student.getGrade}</td>
-                    <td>${ student.getSchool}</td> 
+                    <td>${student.getNo()}</td>
+                    <td>${student.getName()}</td>
+
                 </tr>
         <% } %>
     </table>
