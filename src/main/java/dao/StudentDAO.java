@@ -1,3 +1,4 @@
+package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,7 +32,7 @@ public class StudentDAO extends DAO {
                 student.setEntYear(rs.getInt("ENT_YEAR")); // ENT_YEAR 列にマッピング
                 student.setClassNum(rs.getString("CLASS_NUM")); // CLASS_NUM 列にマッピング
                 student.setAttend(rs.getBoolean("IS_ATTEND")); // IS_ATTEND 列にマッピング
-                student.setSchoolCd(rs.getString("SCHOOL_CD")); // SCHOOL_CD 列にマッピング
+//                student.setSchool(rs.getString("SCHOOL_CD")); // SCHOOL_CD 列にマッピング
             }
         } catch (SQLException e) {
             throw new Exception("Studentの取得に失敗しました。", e);
