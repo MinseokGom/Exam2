@@ -33,11 +33,12 @@
             for (Student student : students) {
         %>
                 <tr>
-                    <td><%= student.getId() %></td>
-                    <td><%= student.getName() %></td>
-                    <td><%= student.getAge() %></td>
-                    <td><%= student.getGrade() %></td>
-                    <td><%= student.getSchool() %></td> 
+                	<td>${product.name}</td>
+                    <td>${ student.getId}</td>
+                    <td>${ student.getName}</td>
+                    <td>${ student.getAge}</td>
+                    <td>${ student.getGrade}</td>
+                    <td>${ student.getSchool}</td> 
                 </tr>
         <% } %>
     </table>

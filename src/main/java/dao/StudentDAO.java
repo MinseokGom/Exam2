@@ -58,4 +58,44 @@ public class StudentDAO extends DAO {
         // 例: studentsリストから該当するStudentを削除
         return students.remove(student);
     }
+    
+    public List<Student> getAllStudents() throws Exception {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        List<Student> students = new ArrayList<>();
+
+        try {
+            con = getConnection();
+            String sql = "SELECT NO, NAME, ENT_YEAR, CLASS_NUM, IS_ATTEND, SCHOOL_CD FROM student";
+            pstmt = con.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Student student = new Student();
+                student.setNo(rs.getString("NO"));
+                student.setName(rs.getString("NAME"));
+                student.setEntYear(rs.getInt("ENT_YEAR"));
+                student.setClassNum(rs.getString("CLASS_NUM"));
+                student.setAttend(rs.getBoolean("IS_ATTEND"));
+                // student.setSchool(rs.getString("SCHOOL_CD")); // If needed
+                students.add(student);
+            }
+        } catch (SQLException e) {
+            throw new Exception("Failed to retrieve all students.", e);
+        } finally {
+            try {
+                if (rs != null) { rs.close(); }
+                if (pstmt != null) { pstmt.close(); }
+                if (con != null) { con.close(); }
+            } catch (SQLException e) {
+                throw new Exception("Failed to close resources.", e);
+            }
+        }
+
+        return students;
+    }
+
+   
 }
+
