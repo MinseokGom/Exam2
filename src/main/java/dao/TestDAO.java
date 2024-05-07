@@ -23,7 +23,7 @@ public class TestDAO extends DAO{
 	  
 	  PreparedStatement st;
 	  st = con.prepareStatement("serect * from student where ent_year=? and class_num=? ");
-	  st
+	  st = con.prepareStatement("serect * from subject where  ");
 	}
 	
 	public List<Test> postFilter(ResultSet rSet, School school){
