@@ -8,8 +8,10 @@
         
         <nav>
         <a href="">メニュー</a>
-          <a href="">学生管理</a>
-          <li> <a　href="../test_regist.jsp">成績管理</a><br></li>
+          <li> 
+            <a href="">学生管理</a><br>
+            <a href="../test_regist.jsp">成績管理</a><br></li>
+
           	<a href="">成績登録</a><br>
           	<a href="">成績参照</a><br>
           <a href="">科目管理</a>
