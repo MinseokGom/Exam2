@@ -10,6 +10,6 @@ public class StudentListAction extends Action{
 		HttpServletRequest request,HttpServletResponse response
 			)throws Exception{
 		
-		return "ここ何が入るの？";
+		return "student_list.jsp";
 	}
 }
