@@ -11,29 +11,26 @@ import bean.Subject;
 
 public class SubjectDAO extends DAO {
 
-	public List<Subject> get(String cd,School school) throws Exception {
-		List<Subject> subjects = new ArrayList<>();
-
-            Connection con = getConnection(); // DAOクラスから継承したgetConnectionメソッドを使用
+	public Subject get(List<Subject> woo) throws Exception {
+            Connection con = getConnection();
             PreparedStatement st=con.prepareStatement(
-    				"SELECT * FROM subjects WHERE cd = ? AND school = ?");
+    				"SELECT * FROM subject WHERE cd = ? AND school = ?");
             st.setString(1, cd);
-            st.setSchool(2, school);
+            st.setString(2, school);
             ResultSet rs = st.executeQuery();
 
-            while (rs.next()) {
+           
                 // 結果からSubjectオブジェクトを生成
-                Subject subj = new Subject();
-                subj.setCd(rs.getString("cd"));
-                subj.setName(rs.getString("name"));
-                subj.setSchool(school);
-                // 他の属性も同様に設定
-            }
+                School sch =  Subject.getSchool();
+                sch.setCd(rs.getString("cd"));
+                sch.setName(rs.getString("name"));
+            
         
          rs.close(); 
          con.close();
         
-        return subjects;
+        
+		return Subject;
     }
 
 
