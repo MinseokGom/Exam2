@@ -49,12 +49,12 @@ public class TestDAO extends DAO{
 		
 		String target= num ==1 ? "a.no.as no, a.point as point ":"b.no as no,b.point as point ";
 //		ここ考える
-		PreparedStatment st=con.preparedStatement("select student.no , student.name, ")
+		PreparedStatement st=con.prepareStatement("select student.no , student.name ,student.ent_year ,subject.name ,test.point ,test.no " );
 		
 	    st.setString(1,school.getCd());
 		st.setInt(2, entYear);
 		st.setString(3,classNum);
-		st.setString(4,subject.getCD());
+		st.setString(4,subject.getCd());
 		ResultSet rs=st.executeQuery();
 		
 		list = postfilter(rs.school,classNum);
@@ -73,9 +73,10 @@ public class TestDAO extends DAO{
 		st1.setString(4, test.getSchool().getCd());
 	
 		
-		ResultSet rs1=st1.executeQeary();
+		ResultSet rs1=st1.executeQuery();
 		
 		if(rs1.next()) {
+//			ここのSQL文考える。
 			PreparedStatement st2=con.prepareStatement("update test set point = ? where student ");
 			st2.setInt(1,test.getPoint());
 			st2.setString(2,test.getStudent(),getNo());
@@ -84,7 +85,8 @@ public class TestDAO extends DAO{
 			st2.setString(5,test.getSchool().getCd());
 			return st2.executeUpdate() == 1;
 		}else {
-			PraparedStatement st2=con.preparStatement("insert into test valuse(???)");
+//			ここもSQL文考える。
+			PreparedStatement st2=con.prepareStatement("insert into test valuse(???)");
 		
 			st2.setString(1, test.getStudent(),getNo());
 			st2.setString(2, test.getSubject(),getCd());
@@ -111,80 +113,3 @@ public class TestDAO extends DAO{
 	
 	
 	
-//	public Test get(Student student, Subject subject,School school, int no) 
-//			throws Exception{
-//	  Student stuudent = new Student();
-//	  Subject subject = new Subject();
-//	  School school = new School();
-//	  
-//	  Connection con= getConnection();
-//	  
-//	  PreparedStatement st;
-//	  st = con.prepareStatement(
-//			  "serect * from student where ent_year=? and class_num=? ");
-//	  PreparedStatement su;
-//	  su = con.prepareStatement(
-//			  "serect * from subject where name=? ");
-//	  
-//	  
-//	  st.setString(1,ent_year);
-//	  su.setString(2,class_num);
-//	  su.setString(3,name);
-//	  
-//	  ResultSet rs = st.executeQuery();
-//	  ResultSet rs = su.executeQuery();
-//	  
-//	  if (rs)
-//	  
-//	}
-//	
-//	public List<Test> postFilter(ResultSet rSet, School school){
-//		List<Test> filteredResults = new ArrayList<>();
-//		
-//		try {
-//			while (rSet.next()) {
-//				Test test = new Test();
-//				test.setEnt_year(rSet.getInt("ent_year"));
-//				test.setName(rSet.getString("name"));
-//				
-//				if(test.getSchool().equals(school)) {
-//					filteredResults.add(test);
-//				}
-//			}
-//		}catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return filteredResults;
-//	}
-//	
-//	public List<Test> filter(int entYear, String classNum, Subject subject, int num, School school){
-//		return new ArrayList<>();
-//	}
-//	
-//	public boolean save(List<Test> list) {
-//		return true;
-//	}
-//	
-//	public boolean save(Test test,Connection connection) {
-//		try {
-//			
-//			String sql = "INSERT INTO tests(id, name ,score) VALUSE(?,?,?)";
-//			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//			preparedStatement.setDouble(3, test.getPoint());
-//            int rowsAffected = preparedStatement.executeUpdate();		
-//            return rowsAffected();
-//		}catch(SQLException e ) {
-//			e.printStackTrace();
-//			return false;
-//		}
-//	}
-//	
-//	private boolean rowsAffected() {
-//		// TODO 自動生成されたメソッド・スタブ
-//		return false;
-//	}
-//
-//	
-//    
-//}
