@@ -29,9 +29,9 @@ public class StudentDAO extends DAO {
                 student = new Student();
                 student.setNo(rs.getString("NO")); // NO 列にマッピング
                 student.setName(rs.getString("NAME")); // NAME 列にマッピング
-                student.setEntYear(rs.getInt("ENT_YEAR")); // ENT_YEAR 列にマッピング
-                student.setClassNum(rs.getString("CLASS_NUM")); // CLASS_NUM 列にマッピング
-                student.setAttend(rs.getBoolean("IS_ATTEND")); // IS_ATTEND 列にマッピング
+    //            student.setEntYear(rs.getInt("ENT_YEAR")); // ENT_YEAR 列にマッピング
+  //              student.setClassNum(rs.getString("CLASS_NUM")); // CLASS_NUM 列にマッピング
+//                student.setAttend(rs.getBoolean("IS_ATTEND")); // IS_ATTEND 列にマッピング
 //                student.setSchool(rs.getString("SCHOOL_CD")); // SCHOOL_CD 列にマッピング
             }
         } catch (SQLException e) {
@@ -75,9 +75,9 @@ public class StudentDAO extends DAO {
                 Student student = new Student();
                 student.setNo(rs.getString("NO"));
                 student.setName(rs.getString("NAME"));
-                student.setEntYear(rs.getInt("ENT_YEAR"));
-                student.setClassNum(rs.getString("CLASS_NUM"));
-                student.setAttend(rs.getBoolean("IS_ATTEND"));
+                //student.setEntYear(rs.getInt("ENT_YEAR"));
+               // student.setClassNum(rs.getString("CLASS_NUM"));
+             //   student.setAttend(rs.getBoolean("IS_ATTEND"));
                 // student.setSchool(rs.getString("SCHOOL_CD")); // If needed
                 students.add(student);
             }
