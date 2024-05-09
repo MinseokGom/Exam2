@@ -33,8 +33,8 @@
         %>
                 <tr>
                 	
-<td style="width: 100px;">${student.getNo()}</td>
-<td style="width: 200px;">${student.getName()}</td>
+<td style="hight: 10px;">${student.getNo()}</td>
+<td style="hight: 20px;">${student.getName()}</td>
 
 
                 </tr>
