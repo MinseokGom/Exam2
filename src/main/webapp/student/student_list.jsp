@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
 <%@ page import="java.util.ArrayList" %>
 
     <h1>Student List</h1>
-    <table border="2">
+    <table border="1">
         <tr>
             <th>Student ID</th>
             <th>Name</th>
@@ -31,11 +32,15 @@
             for (Student student : students) {
         %>
                 <tr>
-                    <td>${student.getNo()}</td>
-                    <td>${student.getName()}</td>
+                	
+<td style="font-size: 14px; height: 30px;">${student.getNo()}</td>
+<td style="font-size: 14px; height: 30px;">${student.getName()}</td>
+
+
 
                 </tr>
         <% } %>
     </table>
 </body>
 </html>
+<%@include file="../footer.jsp" %>
