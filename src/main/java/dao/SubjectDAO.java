@@ -3,7 +3,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 import bean.School;
@@ -13,28 +12,27 @@ public class SubjectDAO extends DAO {
 
 	public Subject get(List<Subject> woo) throws Exception {
             Connection con = getConnection();
-            PreparedStatement st=con.prepareStatement(
-    				"SELECT * FROM subject WHERE cd = ? AND school = ?");
-            st.setString(1, cd);
-            st.setString(2, school);
-            ResultSet rs = st.executeQuery();
-
-           
-                // 結果からSubjectオブジェクトを生成
-                School sch =  Subject.getSchool();
-                sch.setCd(rs.getString("cd"));
-                sch.setName(rs.getString("name"));
             
+            for (Subject subject:woo) {
+            PreparedStatement st=con.prepareStatement(
+    			"SELECT * FROM subject WHERE school_cd = ? AND cd = ? AND  name = ?");
+            School sch = Subject.getSchool();
+            st.setString(1,sch.getCd());
+            st.setString(2, Subject.getCd());
+            st.setString(3,Subject.getName());
+            ResultSet rs = st.executeQuery();
         
          rs.close(); 
          con.close();
         
-        
 		return Subject;
     }
+	}
 
 
-	private List<Subject> subjects = new ArrayList<>();
+	public List<Subject> filter(School school) throws Exception {
+		
+	}
 
 	public boolean save(Subject subject) throws Exception {
 		Connection con=getConnection();
