@@ -32,8 +32,10 @@
             for (Student student : students) {
         %>
                 <tr>
-                    <td>${student.getNo()}</td>
-                    <td>${student.getName()}</td>
+                	
+<td style="width: 100px;">${student.getNo()}</td>
+<td style="width: 200px;">${student.getName()}</td>
+
 
                 </tr>
         <% } %>
