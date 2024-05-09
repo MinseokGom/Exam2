@@ -10,7 +10,7 @@
 <%@ page import="java.util.ArrayList" %>
 
     <h1>Student List</h1>
-    <table border="2">
+    <table border="1">
         <tr>
             <th>Student ID</th>
             <th>Name</th>
