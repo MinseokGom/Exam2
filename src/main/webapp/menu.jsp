@@ -14,7 +14,7 @@
 
           	<a href="">成績登録</a><br>
           	<a href="">成績参照</a><br>
-          <a href="">科目管理</a>
+          <a href="subject/subject_list.jsp">科目管理</a>
            <!-- 他のメニューアイテムを必要に応じて追加 -->
           <li><a href="loginout/logout-in.jsp">ログアウト</a></li>
         
