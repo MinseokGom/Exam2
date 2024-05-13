@@ -13,7 +13,6 @@ public class SubjectDAO extends DAO {
 	public Subject get(List<Subject> woo) throws Exception {
             Connection con = getConnection();
             
-            for (Subject subject:woo) {
             PreparedStatement st=con.prepareStatement(
     			"SELECT * FROM subject WHERE school_cd = ? AND cd = ? AND  name = ?");
             School sch = Subject.getSchool();
@@ -27,7 +26,7 @@ public class SubjectDAO extends DAO {
         
 		return Subject;
     }
-	}
+	
 
 
 	public List<Subject> filter(School school) throws Exception {
