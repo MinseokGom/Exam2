@@ -2,7 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.List"%>
 <%@ include file="../header.jsp"%>
+
 <div style="display: flex;">
+
 	<div style="flex: 1;">
 		<%@ include file="../menu.jsp"%>
 	</div>
@@ -38,6 +40,11 @@
 </body>
 
 		</html>
+
 	</div>
 </div>
 <%@ include file="../footer.jsp"%>
+
+
+
+ 
