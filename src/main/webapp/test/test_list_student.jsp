@@ -7,11 +7,11 @@
     </div>
     <div style="flex: 5;">
 
-        <h2>成績管理</h2>
+        <h2>成績一覧（科目）</h2>
 
         <!-- 検索フォーム -->
         <form action="SearchGrade.jsp" method="get" style="display: flex; align-items: center;">
-            <h3 style="margin-right: 10px;">成績検索</h3>
+            <h3 style="margin-right: 10px;">科目情報</h3>
             <div style="display: flex; flex-wrap: wrap;">
                 <div style="margin-right: 10px;">
                     入学年度:
@@ -31,37 +31,18 @@
                         <option value="">選択してください</option>
                     </select>
                 </div>
-                <div style="margin-right: 10px;">
-                    回数:
-                    <select name="times" required>
-                        <option value="">選択してください</option>
-                    </select>
-                </div>
                 <button type="submit" style="margin-left: 10px;">検索</button>
             </div>
         </form>
 
-        <table style="border-collapse: separate; border-spacing: 10px;">
-            <c:forEach var="product" items="${list}">
-                <tr>
-                    <td>商品${product.id}</td>
-                    <td><img src="image/${product.id}.jpg" height="64"></td>
-                    <td>${product.name}</td>
-                    <td>${product.price}円</td>
-                    <td><a href="CartAdd.action?id=${product.id}">カートに追加</a></td>
-                </tr>
-            </c:forEach>
-        </table>
-
- <form action="SearchGrade.jsp" method="get" style="display: flex; align-items: center;">
-            <h3 style="margin-right: 10px;">成績登録</h3>
-            <div style="display: flex; flex-wrap: wrap;">
-                <div style="margin-right: 10px;">
-            点数：
-            <input type="text" name="score" min="0" max="100" required><br>
+        <!-- 学生番号から検索フォーム -->
+        <form action="SearchGrade.jsp" method="get" style="display: flex; align-items: center; margin-top: 10px;">
+            <h3 style="margin-right: 10px;">学生情報</h3>
+            <div style="margin-right: 10px;">
+                学生番号:
+                <input type="text" name="studentID" required>
             </div>
-            <button type="submit" style="margin-left: 10px;">登録して終了</button>
-            </div>
+            <button type="submit">検索</button>
         </form>
 
     </div>
