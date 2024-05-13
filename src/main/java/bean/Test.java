@@ -56,4 +56,9 @@ public class Test implements java.io.Serializable{
 	public void setPoint (int point) {
 		this.point=point;
 	}
+
+	public double getScore() {
+		// TODO 自動生成されたメソッド・スタブ
+		return 0;
+	}
 }
