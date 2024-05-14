@@ -28,7 +28,16 @@
 <%-- ログイン後のユーザ名とログアウトリンクを表示 --%>
 <header class="header">
   <h1>得点管理システム</h1>
-      ${teacher.name}様
+  
+  
+  
+  <%--頑張って --%>
+    <c:if test="${teacher.name}">
+   		 ${teacher.name}様
+    </c:if>
+  
+  
+  
 </header>
 </body>
 </html>
