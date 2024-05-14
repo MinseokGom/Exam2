@@ -1,4 +1,5 @@
 package dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.School;
 import bean.Student;
 
 public class StudentDAO extends DAO {
@@ -27,12 +29,11 @@ public class StudentDAO extends DAO {
 
             if (rs.next()) {
                 student = new Student();
-                student.setNo(rs.getString("NO")); // NO 列にマッピング
-                student.setName(rs.getString("NAME")); // NAME 列にマッピング
-   //            student.setEntYear(rs.getInt("ENT_YEAR")); // ENT_YEAR 列にマッピング
-  //              student.setClassNum(rs.getString("CLASS_NUM")); // CLASS_NUM 列にマッピング
-//                student.setAttend(rs.getBoolean("IS_ATTEND")); // IS_ATTEND 列にマッピング
-//                student.setSchool(rs.getString("SCHOOL_CD")); // SCHOOL_CD 列にマッピング
+                student.setNo(rs.getString("NO"));
+                student.setName(rs.getString("NAME"));
+                student.setEntYear(rs.getInt("ENT_YEAR"));
+                student.setClassNum(rs.getString("CLASS_NUM"));
+                student.setIsAttend(rs.getBoolean("IS_ATTEND"));
             }
         } catch (SQLException e) {
             throw new Exception("Studentの取得に失敗しました。", e);
@@ -45,57 +46,49 @@ public class StudentDAO extends DAO {
         return student;
     }
 
-    private List<Student> students = new ArrayList<>();
-
-    public boolean save(Student student) {
-        // Studentを保存するロジックを実装
-        // 例: studentsリストに新しいStudentを追加
-        return students.add(student);
-    }
-
-    public boolean delete(Student student) {
-        // Studentを削除するロジックを実装
-        // 例: studentsリストから該当するStudentを削除
-        return students.remove(student);
-    }
-    
-    public List<Student> getAllStudents() throws Exception {
-        Connection con = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
+    public List<Student> postfilter(ResultSet rs, School school, String classNum) throws Exception {
         List<Student> students = new ArrayList<>();
+
+        while (rs.next()) {
+            Student stu = new Student();
+            stu.setNo(rs.getString("NO"));
+            stu.setName(rs.getString("NAME"));
+            stu.setEntYear(rs.getInt("ENT_YEAR"));
+            stu.setClassNum(classNum);
+            stu.setIsAttend(rs.getBoolean("IS_ATTEND"));
+            stu.setSchool(school);
+
+            students.add(stu);
+        }
+        return students;
+    }
+
+    public List<Student> filter(int entYear, String classNum, School school) throws Exception {
+        List<Student> students = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
 
         try {
             con = getConnection();
-            String sql = "SELECT NO, NAME, ENT_YEAR, CLASS_NUM, IS_ATTEND, SCHOOL_CD FROM student";
-            pstmt = con.prepareStatement(sql);
-            rs = pstmt.executeQuery();
+            String sql = "SELECT NO, NAME, ENT_YEAR, IS_ATTEND " +
+                         "FROM student " +
+                         "WHERE SCHOOL_CD = ? AND ENT_YEAR = ? AND CLASS_NUM = ?";
+            st = con.prepareStatement(sql);
+            st.setString(1, school.getCd());
+            st.setInt(2, entYear);
+            st.setString(3, classNum);
+            rs = st.executeQuery();
 
-            while (rs.next()) {
-                Student student = new Student();
-                student.setNo(rs.getString("NO"));
-                student.setName(rs.getString("NAME"));
-                //student.setEntYear(rs.getInt("ENT_YEAR"));
-               // student.setClassNum(rs.getString("CLASS_NUM"));
-             //   student.setAttend(rs.getBoolean("IS_ATTEND"));
-                // student.setSchool(rs.getString("SCHOOL_CD")); // If needed
-                students.add(student);
-            }
+            students = postfilter(rs, school, classNum);
         } catch (SQLException e) {
-            throw new Exception("Failed to retrieve all students.", e);
+            throw new Exception("Failed to filter students.", e);
         } finally {
-            try {
-                if (rs != null) { rs.close(); }
-                if (pstmt != null) { pstmt.close(); }
-                if (con != null) { con.close(); }
-            } catch (SQLException e) {
-                throw new Exception("Failed to close resources.", e);
-            }
+            if (rs != null) { rs.close(); }
+            if (st != null) { st.close(); }
+            if (con != null) { con.close(); }
         }
 
         return students;
     }
-
-   
 }
-
