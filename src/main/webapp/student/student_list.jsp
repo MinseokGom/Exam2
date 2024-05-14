@@ -1,51 +1,56 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dao.StudentDAO" %>
+<%@ page import="bean.Student" %>
+<%@ page import="bean.School" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Student List</title>
+    <title>All Students</title>
 </head>
 <body>
-    <h1>Student List</h1>
-    <table border="1">
-        <tr>
-            <th>Student ID</th>
-            <th>Name</th>
-            <th>Entrance Year</th>
-            <th>Class Number</th>
-            <th>Is Attend</th>
-        </tr>
-        <%@ page import="dao.StudentDAO" %>
-        <%@ page import="bean.Student" %>
-        <%@ page import="java.util.ArrayList" %> <!-- 追加 -->
-        <%@ page import="java.util.List" %> <!-- 追加 -->
-        <%@ page import="bean.School" %>
-        <%-- 学校情報の準備 --%>
-        <% School school = new School(); %>
-        <% school.setCd("YOUR_SCHOOL_CODE"); // 学校コードを設定 %>
-        <% 
-            StudentDAO studentDAO = new StudentDAO();
-            List<Student> students = new ArrayList<>();
-            try {
-                // 学生データの取得
-                students = studentDAO.filter(2024, "A", school); // ここで条件を指定して絞り込み
-            } catch (Exception e) {
-                out.println("Error occurred while filtering students: " + e.getMessage());
-            }
-            // 学生データの表示
+    <h1>All Students</h1>
+    <%
+        StudentDAO studentDAO = new StudentDAO();
+        List<Student> students = new ArrayList<>();
+        
+        try {
+            students = studentDAO.getAllStudents();
+        } catch (Exception e) {
+            out.println("<p>Error: " + e.getMessage() + "</p>");
+        }
+
+        if (students.isEmpty()) {
+            out.println("<p>No students found.</p>");
+        } else {
+            out.println("<table border='1'>");
+            out.println("<tr>");
+            out.println("<th>No</th>");
+            out.println("<th>Name</th>");
+            out.println("<th>Enrollment Year</th>");
+            out.println("<th>Class Number</th>");
+            out.println("<th>Is Attend</th>");
+            out.println("<th>School Code</th>");
+            out.println("<th>School Name</th>");
+            out.println("</tr>");
+
             for (Student student : students) {
-        %>
-                <tr>
-                    <td><c:out value="${student.no}" /></td>
-                    <td><c:out value="${student.name}" /></td>
-                    <td><c:out value="${student.entYear}" /></td>
-                    <td><c:out value="${student.classNum}" /></td>
-                    <td><c:out value="${student.isAttend}" /></td>
-                </tr>
-        <% } %>
-    </table>
+                out.println("<tr>");
+                out.println("<td>" + student.getNo() + "</td>");
+                out.println("<td>" + student.getName() + "</td>");
+                out.println("<td>" + student.getEntYear() + "</td>");
+                out.println("<td>" + student.getClassNum() + "</td>");
+                out.println("<td>" + student.getIsAttend() + "</td>");
+                out.println("<td>" + student.getSchool().getCd() + "</td>");
+                out.println("<td>" + student.getSchool().getName() + "</td>");
+                out.println("</tr>");
+            }
+
+            out.println("</table>");
+        }
+    %>
 </body>
 </html>
-<%@ include file="../footer.jsp" %>

@@ -12,83 +12,49 @@ import bean.Student;
 
 public class StudentDAO extends DAO {
 
-    public Student get(String cd, String school) throws Exception {
+    // Existing methods...
+
+    public List<Student> getAllStudents() throws Exception {
+        List<Student> students = new ArrayList<>();
         Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        Student student = null;
 
         try {
             con = getConnection();
-            String sql = "SELECT NO, NAME, ENT_YEAR, CLASS_NUM, IS_ATTEND, SCHOOL_CD FROM student WHERE NO = ? AND SCHOOL_CD = ?";
+            String sql = "SELECT NO, NAME, ENT_YEAR, CLASS_NUM, IS_ATTEND, SCHOOL_CD FROM student";
             pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, cd);
-            pstmt.setString(2, school);
-
             rs = pstmt.executeQuery();
 
-            if (rs.next()) {
-                student = new Student();
+            while (rs.next()) {
+                Student student = new Student();
                 student.setNo(rs.getString("NO"));
                 student.setName(rs.getString("NAME"));
                 student.setEntYear(rs.getInt("ENT_YEAR"));
                 student.setClassNum(rs.getString("CLASS_NUM"));
                 student.setIsAttend(rs.getBoolean("IS_ATTEND"));
+                // Assuming you have a method to fetch school details by SCHOOL_CD
+                School school = getSchoolByCode(rs.getString("SCHOOL_CD")); 
+                student.setSchool(school);
+                students.add(student);
             }
         } catch (SQLException e) {
-            throw new Exception("Studentの取得に失敗しました。", e);
+            throw new Exception("Failed to retrieve all students.", e);
         } finally {
             if (rs != null) { rs.close(); }
             if (pstmt != null) { pstmt.close(); }
             if (con != null) { con.close(); }
         }
 
-        return student;
-    }
-
-    public List<Student> postfilter(ResultSet rs, School school, String classNum) throws Exception {
-        List<Student> students = new ArrayList<>();
-
-        while (rs.next()) {
-            Student stu = new Student();
-            stu.setNo(rs.getString("NO"));
-            stu.setName(rs.getString("NAME"));
-            stu.setEntYear(rs.getInt("ENT_YEAR"));
-            stu.setClassNum(classNum);
-            stu.setIsAttend(rs.getBoolean("IS_ATTEND"));
-            stu.setSchool(school);
-
-            students.add(stu);
-        }
         return students;
     }
 
-    public List<Student> filter(int entYear, String classNum, School school) throws Exception {
-        List<Student> students = new ArrayList<>();
-        Connection con = null;
-        PreparedStatement st = null;
-        ResultSet rs = null;
-
-        try {
-            con = getConnection();
-            String sql = "SELECT NO, NAME, ENT_YEAR, IS_ATTEND " +
-                         "FROM student " +
-                         "WHERE SCHOOL_CD = ? AND ENT_YEAR = ? AND CLASS_NUM = ?";
-            st = con.prepareStatement(sql);
-            st.setString(1, school.getCd());
-            st.setInt(2, entYear);
-            st.setString(3, classNum);
-            rs = st.executeQuery();
-
-            students = postfilter(rs, school, classNum);
-        } catch (SQLException e) {
-            throw new Exception("Failed to filter students.", e);
-        } finally {
-            if (rs != null) { rs.close(); }
-            if (st != null) { st.close(); }
-            if (con != null) { con.close(); }
-        }
-
-        return students;
+    private School getSchoolByCode(String schoolCd) {
+        // This method should retrieve the School object based on schoolCd.
+        // For simplicity, we assume it returns a dummy School object here.
+        School school = new School();
+        school.setCd(schoolCd);
+        school.setName("Dummy School");
+        return school;
     }
 }
