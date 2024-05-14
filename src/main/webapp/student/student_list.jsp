@@ -1,46 +1,56 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@include file="../header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dao.StudentDAO" %>
+<%@ page import="bean.Student" %>
+<%@ page import="bean.School" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Student List</title>
+    <title>All Students</title>
 </head>
 <body>
-<%@ page import="java.util.ArrayList" %>
+    <h1>All Students</h1>
+    <%
+        StudentDAO studentDAO = new StudentDAO();
+        List<Student> students = new ArrayList<>();
+        
+        try {
+            students = studentDAO.getAllStudents();
+        } catch (Exception e) {
+            out.println("<p>Error: " + e.getMessage() + "</p>");
+        }
 
-    <h1>Student List</h1>
-    <table border="1">
-        <tr>
-            <th>Student ID</th>
-            <th>Name</th>
+        if (students.isEmpty()) {
+            out.println("<p>No students found.</p>");
+        } else {
+            out.println("<table border='1'>");
+            out.println("<tr>");
+            out.println("<th>No</th>");
+            out.println("<th>Name</th>");
+            out.println("<th>Enrollment Year</th>");
+            out.println("<th>Class Number</th>");
+            out.println("<th>Is Attend</th>");
+            out.println("<th>School Code</th>");
+            out.println("<th>School Name</th>");
+            out.println("</tr>");
 
-        </tr>
-        <%@ page import="java.util.List" %>
-        <%@ page import="dao.StudentDAO" %>
-        <%@ page import="bean.Student" %>
-        <%-- データベースから学生データを取得 --%>
-        <% 
-            StudentDAO studentDAO = new StudentDAO();
-            List<Student> students = new ArrayList<>();
-            try {
-                students = studentDAO.getAllStudents(); // StudentDAO から全学生データを取得
-            } catch (Exception e) {
-                out.println("Error occurred while retrieving student data: " + e.getMessage());
-            }
-            // 取得したデータを表示
             for (Student student : students) {
-        %>
-                <tr>
-                	
-<td style="font-size: 14px; height: 30px;">${student.getNo()}</td>
-<td style="font-size: 14px; height: 30px;">${student.getName()}</td>
+                out.println("<tr>");
+                out.println("<td>" + student.getNo() + "</td>");
+                out.println("<td>" + student.getName() + "</td>");
+                out.println("<td>" + student.getEntYear() + "</td>");
+                out.println("<td>" + student.getClassNum() + "</td>");
+                out.println("<td>" + student.getIsAttend() + "</td>");
+                out.println("<td>" + student.getSchool().getCd() + "</td>");
+                out.println("<td>" + student.getSchool().getName() + "</td>");
+                out.println("</tr>");
+            }
 
-
-
-                </tr>
-        <% } %>
-    </table>
+            out.println("</table>");
+        }
+    %>
 </body>
 </html>
-<%@include file="../footer.jsp" %>
