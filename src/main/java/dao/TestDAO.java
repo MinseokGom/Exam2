@@ -11,6 +11,7 @@ import bean.Student;
 import bean.Subject;
 import bean.Test;
 
+
 public class TestDAO extends DAO{
 	
 	public List<Test> postfilter(ResultSet rSet, School school, String classNum)throws Exception{
@@ -41,7 +42,7 @@ public class TestDAO extends DAO{
 		}
 		return list;
 	}
-
+	
 	public List<Test> filter(int entYear, String classNum, Subject subject ,int num , School school)throws Exception{
 		List<Test>list= new ArrayList<>();
 		Connection con=getConnection();
@@ -123,8 +124,5 @@ public class TestDAO extends DAO{
 	}
 }
 	
-	public List<Test> filter(int entYear, String classNum, Subject subject, int num, School school){
-		return new ArrayList<>();
-	}
 	
-
+	
