@@ -12,7 +12,7 @@ import bean.Subject;
 
 public class SubjectDAO extends DAO {
 
-    public List<Subject> filter(School school) throws Exception {
+    public List<Subject> get(School school) throws Exception {
         List<Subject> subjects = new ArrayList<>();
         Connection con = null;
         PreparedStatement st = null;
@@ -42,24 +42,24 @@ public class SubjectDAO extends DAO {
 
         return subjects;
     }
-	public Subject get(List<Subject> woo) throws Exception {
-            Connection con = getConnection();
-            
-            for (Subject subject:woo) {
-            PreparedStatement st=con.prepareStatement(
-    			"SELECT * FROM subject WHERE school_cd = ? AND cd = ? AND  name = ?");
-            School sch = Subject.getSchool();
-            st.setString(1,sch.getCd());
-            st.setString(2, Subject.getCd());
-            st.setString(3,Subject.getName());
-            ResultSet rs = st.executeQuery();
-        
-         rs.close(); 
-         con.close();
-        
-		return Subject;
-    }
-	}
+//	public Subject get(List<Subject> woo) throws Exception {
+//            Connection con = getConnection();
+//            
+//            for (Subject subject:woo) {
+//            PreparedStatement st=con.prepareStatement(
+//    			"SELECT * FROM subject WHERE school_cd = ? AND cd = ? AND  name = ?");
+//            School sch = Subject.getSchool();
+//            st.setString(1,sch.getCd());
+//            st.setString(2, Subject.getCd());
+//            st.setString(3,Subject.getName());
+//            ResultSet rs = st.executeQuery();
+//        
+//         rs.close(); 
+//         con.close();
+//        
+//		return Subject;
+//    }
+//	}
 //	public List<Subject> getAllSubjects() throws Exception {
 //	    List<Subject> subjects = new ArrayList<>();
 //	    Connection con = null;
@@ -96,9 +96,9 @@ public class SubjectDAO extends DAO {
 //
 
 
-//	public List<Subject> filter(School school) throws Exception {
-//		
-//	}
+	public List<Subject> filter(School school) throws Exception {
+		
+	}
 
 	public boolean save(Subject subject) throws Exception {
 		Connection con=getConnection();
