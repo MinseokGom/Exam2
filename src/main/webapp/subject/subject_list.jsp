@@ -25,6 +25,7 @@
 
             <h1>科目管理</h1>
 
+<<<<<<< HEAD
             <table border="1">
                 <thead>
                     <tr>
@@ -50,6 +51,20 @@
                             out.println("<tr><td colspan='3'>No subjects found</td></tr>");
                         }
                     %>
+=======
+	<h1>科目管理</h1>
+	
+	<div style="margin: 0 0 0 auto; width: 30%;">
+    <div style="margin-left: auto;"><a href="subject_create.jsp">新規登録</a>
+    </div>
+	</div>
+	<thead>
+		<tr>
+			<th>科目番号</th>
+			<div style="width: 100px;"><th>科目名</th></div>
+		</tr>
+	</thead>
+>>>>>>> branch 'master' of https://github.com/MinseokGom/Exam2.git
 
                     <c:forEach var="subject" items="${subjects}">
                         <tr>
