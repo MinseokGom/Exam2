@@ -12,8 +12,7 @@ import bean.Subject;
 
 public class SubjectDAO extends DAO {
 
-<<<<<<< HEAD
-    public List<Subject> filter(School school) throws Exception {
+    public List<Subject> get(School school) throws Exception {
         List<Subject> subjects = new ArrayList<>();
         Connection con = null;
         PreparedStatement st = null;
@@ -43,7 +42,6 @@ public class SubjectDAO extends DAO {
 
         return subjects;
     }
-=======
 //	public Subject get(List<Subject> woo) throws Exception {
 //            Connection con = getConnection();
 //            
@@ -62,40 +60,40 @@ public class SubjectDAO extends DAO {
 //		return Subject;
 //    }
 //	}
-	public List<Subject> getAllSubjects() throws Exception {
-	    List<Subject> subjects = new ArrayList<>();
-	    Connection con = null;
-	    PreparedStatement pstmt = null;
-	    ResultSet rs = null;
-
-	    try {
-	        con = getConnection();
-	        String sql = "SELECT school_cd,cd,name  FROM subject";
-	        pstmt = con.prepareStatement(sql);
-	        rs = pstmt.executeQuery();
-
-	        while (rs.next()) {
-	            Subject subject = new Subject();
-
-	            subject.setCd(rs.getString("CD"));
-	            subject.setName(rs.getString("NAME"));
-	            subject.setSchool(rs.getSchool("school"));
-	            // 学校コードから学校の詳細を取得するメソッドがあると仮定します
-	            School school = getSchoolByCode(rs.getString("SCHOOL_CD")); 
-	            subject.setSchool(school);
-	            subjects.add(subject);
-	        }
-	    } catch (SQLException e) {
-	        throw new Exception("すべての科目を取得できませんでした。", e);
-	    } finally {
-	        if (rs != null) { rs.close(); }
-	        if (pstmt != null) { pstmt.close(); }
-	        if (con != null) { con.close(); }
-	    }
-
-	    return subjects;
-	}
-
+//	public List<Subject> getAllSubjects() throws Exception {
+//	    List<Subject> subjects = new ArrayList<>();
+//	    Connection con = null;
+//	    PreparedStatement pstmt = null;
+//	    ResultSet rs = null;
+//
+//	    try {
+//	        con = getConnection();
+//	        String sql = "SELECT school_cd,cd,name  FROM subject";
+//	        pstmt = con.prepareStatement(sql);
+//	        rs = pstmt.executeQuery();
+//
+//	        while (rs.next()) {
+//	            Subject subject = new Subject();
+//
+//	            subject.setCd(rs.getString("CD"));
+//	            subject.setName(rs.getString("NAME"));
+//	            subject.setSchool(rs.getSchool("school"));
+//	            // 学校コードから学校の詳細を取得するメソッドがあると仮定します
+//	            School school = getSchoolByCode(rs.getString("SCHOOL_CD")); 
+//	            subject.setSchool(school);
+//	            subjects.add(subject);
+//	        }
+//	    } catch (SQLException e) {
+//	        throw new Exception("すべての科目を取得できませんでした。", e);
+//	    } finally {
+//	        if (rs != null) { rs.close(); }
+//	        if (pstmt != null) { pstmt.close(); }
+//	        if (con != null) { con.close(); }
+//	    }
+//
+//	    return subjects;
+//	}
+//
 
 
 	public List<Subject> filter(School school) throws Exception {
@@ -130,5 +128,4 @@ public class SubjectDAO extends DAO {
 		return subjects.remove(subject);
 	}
 
->>>>>>> branch 'master' of https://github.com/MinseokGom/Exam2.git
 }
