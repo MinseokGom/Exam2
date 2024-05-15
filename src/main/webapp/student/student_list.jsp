@@ -8,11 +8,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
+<%@include file="../header.jsp" %>
+
+
+<%@include file="../menu.jsp" %>
+
     <meta charset="UTF-8">
-    <title>All Students</title>
+    <title>学生管理画面</title>
 </head>
 <body>
-    <h1>All Students</h1>
+    <h1>学生管理</h1>
     <%
         StudentDAO studentDAO = new StudentDAO();
         List<Student> students = new ArrayList<>();
@@ -54,3 +61,5 @@
     %>
 </body>
 </html>
+<%@include file="../footer.jsp" %>
+
