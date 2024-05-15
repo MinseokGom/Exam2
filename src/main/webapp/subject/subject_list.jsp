@@ -22,10 +22,15 @@
 <body>
 
 	<h1>科目管理</h1>
+	
+	<div style="margin: 0 0 0 auto; width: 30%;">
+    <div style="margin-left: auto;"><a href="subject_create.jsp">新規登録</a>
+    </div>
+	</div>
 	<thead>
 		<tr>
 			<th>科目番号</th>
-			<th>科目名</th>
+			<div style="width: 100px;"><th>科目名</th></div>
 		</tr>
 	</thead>
 
