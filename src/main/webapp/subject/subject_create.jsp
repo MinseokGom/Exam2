@@ -15,31 +15,39 @@
     <title>成績一覧</title>
 </head>
 <body>
-    <h1>科目管理</h1>
-    <form action="/SubjectListAction.java" method="get">
-    	<label for="ent_year">入学年度</label>
-        <select id="ent_year" name="ent_year">
-            <option value="国語">2015</option>
-            <option value="数学">2016</option>
-            <!-- Add more subject options here -->
-        </select>
-        <label for="class">クラス</label>
-        <select id="class" name="class">
-            <option value="国語">1組</option>
-            <option value="数学">2組</option>
-            <!-- Add more subject options here -->
-        </select>
-        <label for="subject">科目</label>
-        <select id="subject" name="subject">
-            <option value="国語">国語</option>
-            <option value="数学">数学</option>
-            <!-- Add more subject options here -->
-        </select>
-        <input type="submit" value="検索">
-    </form>
-  
+    <h1>科目登録</h1>
+ 
+	<thead>
+		<tr>
+			<th>科目コード</th><br>
+			<input type="registration" id="registration_code" style="width: 500px; height: 1em;" placeholder="科目コードを入力してください" name="registration_code" required><br>
+			
+
+			<th>科目名</th><br>
+			<input type="registration" id="registration_code" style="width: 500px; height: 1em;" placeholder="科目コードを入力してください" name="registration_code" required><br>
+			
+		</tr>
+	</thead>
+
+	<c:forEach var="subject" items="${subject}">
+		<tr>
+			<td>${subject.school_cd}</td>
+			<td>${subject.cd}</td>
+			<td>${subject.name}</td>
+		</tr>
+	</c:forEach>
+
+	
+	<button type="submit" id="submit" style="background-color: #00c9e8; color: white;">登録</button><br>
+	
+	
+	<button type="button" onclick="history.back()">戻る</button>
+	 
+
+
 </body>
-</html>
+
+		</html>
 	</div>
 </div>
 

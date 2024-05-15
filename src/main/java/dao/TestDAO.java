@@ -81,17 +81,13 @@ public class TestDAO extends DAO{
 		
 		if(rs1.next()) {
 //			ここのSQL文考える。
-			SELECT test.no, test.point, student.no, student.name, student.ent_year, subject.cd, subject.name
-			FROM test
-			INNER JOIN student ON test.student_no = student.no
-			INNER JOIN subject ON test.subject_cd = subject.cd
-			WHERE student.school_cd = ? AND student.ent_year = ? AND student.class_num = ? AND subject.cd = ?
 
-			PreparedStatement st2=con.prepareStatement("update test set point = ? where student ");
-			st2.setInt(1,test.getPoint());
+			PreparedStatement st2=con.prepareStatement(			
+					"SELECT test.no, test.point, student.no, student.name, student.ent_year, subject.cd, subject.nameFROM testINNER JOIN student ON test.student_no = student.no INNER JOIN subject ON test.subject_cd = subject.cd WHERE student.school_cd = ? AND student.ent_year = ? AND student.class_num = ? AND subject.cd = ?");
+//			st2.setInt(1,test.getPoint());
 			st2.setString(2,test.getStudent(),getNo());
 			st2.setString(3,test.getSubject(),getCd());
-			st2.setInt(4,test.getNo());
+//			st2.setInt(4,test.getNo());
 			st2.setString(5,test.getSchool().getCd());
 			return st2.executeUpdate() == 1;
 		}else {

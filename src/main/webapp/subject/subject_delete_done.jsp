@@ -15,31 +15,17 @@
     <title>成績一覧</title>
 </head>
 <body>
-    <h1>科目管理</h1>
-    <form action="/SubjectListAction.java" method="get">
-    	<label for="ent_year">入学年度</label>
-        <select id="ent_year" name="ent_year">
-            <option value="国語">2015</option>
-            <option value="数学">2016</option>
-            <!-- Add more subject options here -->
-        </select>
-        <label for="class">クラス</label>
-        <select id="class" name="class">
-            <option value="国語">1組</option>
-            <option value="数学">2組</option>
-            <!-- Add more subject options here -->
-        </select>
-        <label for="subject">科目</label>
-        <select id="subject" name="subject">
-            <option value="国語">国語</option>
-            <option value="数学">数学</option>
-            <!-- Add more subject options here -->
-        </select>
-        <input type="submit" value="検索">
-    </form>
-  
+    <h1>科目情報削除</h1>
+ 
+
+	<button type="submit" id="submit" style="background-color: #00c9e8; color: white; margin: auto;">削除が完了しました</button><br>
+	
+		 <a href="subject_list.jsp">科目一覧へ</style></a>
+
+
 </body>
-</html>
+
+		</html>
 	</div>
 </div>
 
