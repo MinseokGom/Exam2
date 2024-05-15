@@ -25,7 +25,7 @@ public class SubjectDAO extends DAO {
          rs.close(); 
          con.close();
         
-		return Subject;
+		return SubjectDAO;
     }
 	}
 
