@@ -49,7 +49,11 @@ public class TestDAO extends DAO{
 		
 		String target= num ==1 ? "a.no.as no, a.point as point ":"b.no as no,b.point as point ";
 //		ここ考える
-		PreparedStatement st=con.prepareStatement("select student.no , student.name ,student.ent_year ,subject.name ,test.point ,test.no " );
+		PreparedStatement st=con.prepareStatement("select student.no, student.name, student.ent_year, student is attend, subject.od, subject.name, a no, a point, bino as no, b.point as point from student inner join subject on student.school_cd subject.school_cd\n"
+				+ "\n"
+				+ "left outer join test as a left join test as b on a student no = b.student_no and a subject od b.subject od and a nob.no\n"
+				+ "\n"
+				+ "on student.no a student_no and subject.cd = a.subject_od where (a.no 1 or (a.no 2 and bino is null)) and student school cd = 'oom' and student. ent year 2021 and student class, num \"201\" and subjected - 002 " );
 		
 	    st.setString(1,school.getCd());
 		st.setInt(2, entYear);

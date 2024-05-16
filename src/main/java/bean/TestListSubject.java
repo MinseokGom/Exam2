@@ -13,8 +13,8 @@ public class TestListSubject implements java.io.Serializable {
 	private Map<Integer, Integer> points;
 	
 	public String getSubjectList() {
-		return subjcetList;
-	}
+		return subjectList();
+	}	
 	
 	public int getEntYear() {
 		return entYear;
@@ -60,5 +60,5 @@ public class TestListSubject implements java.io.Serializable {
 		
 	}
 	
-	public void putPoint()
+	public void putPoint();
 }

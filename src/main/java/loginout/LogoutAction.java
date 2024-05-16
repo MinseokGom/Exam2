@@ -11,5 +11,4 @@ public class LogoutAction extends Action {
     	
     	return "logout-out.jsp";
     }
-    
 }
