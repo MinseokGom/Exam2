@@ -33,23 +33,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        SubjectDAO subjectDAO = new SubjectDAO();
-                        List<Subject> subjects = null;
-                        try {
-                            School school = new School();
-                            school.setCd("your_school_code"); // 適切な学校コードを設定してください
-                           // subjects = SubjectDAO.get(school);  
-                        } catch (Exception e) {
-                            out.println("<tr><td colspan='3'>Error: " + e.getMessage() + "</td></tr>");
-                        }
-                        if (subjects != null && !subjects.isEmpty()) {
-                            request.setAttribute("subjects", subjects);
-                        } else {
-                            out.println("<tr><td colspan='3'>No subjects found</td></tr>");
-                        }
-                    %>
-<!-- 
+                
+                ${subject }
+                     
+<!--
 	<h1>科目管理</h1>
 	
 	<div style="margin: 0 0 0 auto; width: 30%;">
@@ -64,13 +51,13 @@
 	</thead>
  -->
 
-                    <c:forEach var="subject" items="${subject}">
+                 
                         <tr>
-                            <td>${subject.school.cd}</td>
+                            <td>${subject.school_cd}</td>
                             <td>${subject.cd}</td>
                             <td>${subject.name}</td>
                         </tr>
-                    </c:forEach>
+                    
                 </tbody>
             </table>
 
