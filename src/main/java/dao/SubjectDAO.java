@@ -12,7 +12,7 @@ import bean.Subject;
 
 public class SubjectDAO extends DAO {
 
-    public List<Subject> get(School school) throws Exception {
+    public List<Subject> getsub(School school) throws Exception {
         List<Subject> subjects = new ArrayList<>();
         Connection con = null;
         PreparedStatement st = null;
@@ -26,11 +26,11 @@ public class SubjectDAO extends DAO {
             rs = st.executeQuery();
 
             while (rs.next()) {
-                Subject subject = new Subject();
-                subject.setCd(rs.getString("cd"));
-                subject.setName(rs.getString("name"));
-                subject.setSchool(school);
-                subjects.add(subject);
+                Subject subj = new Subject();
+                subj.setCd(rs.getString("cd"));
+                subj.setName(rs.getString("name"));
+                subj.setSchool(school);
+                subjects.add(subj);
             }
         } catch (SQLException e) {
             throw new Exception("Failed to filter subjects.", e);
