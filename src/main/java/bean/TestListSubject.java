@@ -16,6 +16,11 @@ public class TestListSubject implements java.io.Serializable {
 		return subjectList();
 	}	
 	
+	private String subjectList() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
 	public int getEntYear() {
 		return entYear;
 	}
@@ -36,7 +41,7 @@ public class TestListSubject implements java.io.Serializable {
         points = new HashMap<>();
     }
 	
-	public void setSubjectList(String subjectList ) {
+	public void setSubjectList(String subjectList) {
 		this.subjectList=subjectList;
 	}
 	
@@ -56,7 +61,7 @@ public class TestListSubject implements java.io.Serializable {
 		this.classNum=classNum;
 	}
 	
-	public void setPoints(Map<Integer,Integer>) {
+	public void setPoints(Map<Integer,Integer> point) {
 		
 	}
 	
