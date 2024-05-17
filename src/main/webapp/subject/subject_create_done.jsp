@@ -22,7 +22,7 @@
 	
 	
 	<a href="subject_create.jsp">戻る</a>
-	 <a href="subject_list.jsp">科目一覧へ</style></a>
+	 <a href="subject_list.jsp">科目一覧へ</a>
 
 
 </body>
