@@ -24,6 +24,7 @@
         <body>
 
             <h1>科目管理</h1>
+            <a href="subject_create.jsp">新規登録</a>
             <table border="1">
                 <thead>
                     <tr>
@@ -59,8 +60,10 @@
                         </tr>
                     </c:forEach>
                 </tbody>
+                
             </table>
-
+				<a href="subject_update.jsp">変更</a><br>
+				 <a href="subject_delete.jsp">削除</a>
         </body>
         </html>
     </div>
