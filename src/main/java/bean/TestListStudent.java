@@ -38,4 +38,9 @@ public class TestListStudent implements java.io.Serializable{
     public void setPoint(int point) {
     	this.point=point;
     }
+
+	public void add(TestListStudent testListStudent) {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
 }
