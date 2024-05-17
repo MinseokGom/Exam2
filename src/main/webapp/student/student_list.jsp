@@ -5,6 +5,7 @@
 <%@ page import="bean.Student" %>
 <%@ page import="bean.School" %>
 <%@ include file="../header.jsp" %>
+<%@ include file="../menu.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -25,13 +26,15 @@
 </head>
 <body>
     <h1>学生管理</h1>
-
+<a href="">学生追加</a>
+<br>
+<p>フィルター</p>
     <form method="get" action="student_list.jsp">
         <label for="schoolCd">学校コード:</label>
         <select id="schoolCd" name="schoolCd">
             <option value="">すべて</option>
-            <option value="SCH001">学校001</option>
-            <option value="SCH002">学校002</option>
+            <option value="omm">大宮校</option>
+            <option value="tky">東京校</option>
             <!-- 他の学校コードを追加 -->
         </select>
         <br>
@@ -119,6 +122,8 @@
                             <td><%= student.getEntYear() %></td>
                             <td><%= student.getClassNum() %></td>
                             <td><%= student.getIsAttend() ? "出席" : "欠席" %></td>
+                            <td><a href="">変更</a></td>
+                 
                         </tr>
                         <%
                     }
