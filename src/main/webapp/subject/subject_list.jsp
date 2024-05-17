@@ -35,22 +35,7 @@
                 <tbody>
                 
                 ${subject }
-                     <%
-                        SubjectDAO subjectDAO = new SubjectDAO();
-                        List<Subject> subjects = null;
-                        try {
-                            School school = new School();
-                            school.setCd("oom"); 
-                            subjects = SubjectDAO.getsub(school);  
-                        } catch (Exception e) {
-                            out.println("<tr><td colspan='3'>Error: " + e.getMessage() + "</td></tr>");
-                        }
-                        if (subjects != null && !subjects.isEmpty()) {
-                            request.setAttribute("subjects", subjects);
-                        } else {
-                            out.println("<tr><td colspan='3'>No subjects found</td></tr>");
-                        }
-                    %>
+                    
 <!--
 	<h1>科目管理</h1>
 	
