@@ -60,7 +60,8 @@
             点数：
             <input type="text" name="score" min="0" max="100" required><br>
             </div>
-            <button type="submit" style="margin-left: 10px;">登録して終了</button>
+             <input type="button" onclick="location.href='../test/test_update_done.jsp'" value="登録して終了">
+      <!--      <button type="submit" href="../test/test_update_done.jsp" style="margin-left: 10px;">登録して終了</button>-->  
             </div>
         </form>
 
