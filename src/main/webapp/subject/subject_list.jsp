@@ -24,8 +24,6 @@
         <body>
 
             <h1>科目管理</h1>
-
-<<<<<<< HEAD
             <table border="1">
                 <thead>
                     <tr>
@@ -41,7 +39,7 @@
                         try {
                             School school = new School();
                             school.setCd("your_school_code"); // 適切な学校コードを設定してください
-                            subjects = subjectDAO.filter(school);
+                           // subjects = SubjectDAO.get(school);  
                         } catch (Exception e) {
                             out.println("<tr><td colspan='3'>Error: " + e.getMessage() + "</td></tr>");
                         }
@@ -51,7 +49,7 @@
                             out.println("<tr><td colspan='3'>No subjects found</td></tr>");
                         }
                     %>
-=======
+<!-- 
 	<h1>科目管理</h1>
 	
 	<div style="margin: 0 0 0 auto; width: 30%;">
@@ -64,9 +62,9 @@
 			<div style="width: 100px;"><th>科目名</th></div>
 		</tr>
 	</thead>
->>>>>>> branch 'master' of https://github.com/MinseokGom/Exam2.git
+ -->
 
-                    <c:forEach var="subject" items="${subjects}">
+                    <c:forEach var="subject" items="${subject}">
                         <tr>
                             <td>${subject.school.cd}</td>
                             <td>${subject.cd}</td>

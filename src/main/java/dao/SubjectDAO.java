@@ -12,7 +12,7 @@ import bean.Subject;
 
 public class SubjectDAO extends DAO {
 
-    public List<Subject> filter(School school) throws Exception {
+    public List<Subject> get(School school) throws Exception {
         List<Subject> subjects = new ArrayList<>();
         Connection con = null;
         PreparedStatement st = null;

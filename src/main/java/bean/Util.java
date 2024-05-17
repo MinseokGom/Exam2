@@ -15,6 +15,10 @@ public class Util implements java.io.Serializable{
 
 	        // この部分は適切なロジックに置き換えてください
 	        return null;
+	        
+	        
+	        
+	        
 	    }
      public void setClassNumSet(HttpServletRequest request)throws ServletException, IOException{
     	// ここにsetClassNumSetメソッドの処理を記述してください

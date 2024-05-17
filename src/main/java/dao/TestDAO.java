@@ -49,14 +49,12 @@ public class TestDAO extends DAO{
 		
 		String target= num ==1 ? "a.no.as no, a.point as point ":"b.no as no,b.point as point ";
 //		ここ考える
-		PreparedStatement st=con.prepareStatement("select student.no , student.name ,student.ent_year ,subject.name ,test.point ,test.no " );
-		
+		PreparedStatement st=con.prepareStatement("select student.no,student.name,student.ent_year, student.is_attend, subject.cd ,subject.name ,a.no, a.point, b.no,b.point, as point from student inner join subject on student .school_cd = subject.school_cd left outer join test as a left join test as b on  a.student_no = b.studen_no and a.subject_cd and a.no<>b.no on student.no = a.student_no and subject_cd = a.subject_cd  where (a.no = 1 or (a.no = 2 and b.no id null ))and student.school_cd = ? and studen.ent_year = ? and student.class_num = ? and subject.cd = ?");
 	    st.setString(1,school.getCd());
 		st.setInt(2, entYear);
 		st.setString(3,classNum);
 		st.setString(4,subject.getCd());
 		ResultSet rs=st.executeQuery();
-		
 		list = postfilter(rs.school,classNum);
 		
 		st.close();
