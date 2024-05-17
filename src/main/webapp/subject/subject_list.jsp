@@ -13,44 +13,33 @@
     <div style="flex: 2;">
         <!DOCTYPE html>
         <html>
+        
         <head>
             <meta charset="UTF-8">
             <title>得点管理システム</title>
             <style>
-                /* Add your custom CSS styles here */
-                /* For example, adjust font size, colors, layout, etc. */
+              .right {
+   				 text-align: right;
+						}
             </style>
         </head>
         <body>
 
             <h1>科目管理</h1>
+            <div class="right">
+            <a href="subject_create.jsp">新規登録</a>
+            </div>
             <table border="1">
                 <thead>
                     <tr>
-                        <th>学校コード</th>
-                        <th>科目番号</th>
+                        <th>科目コード</th>
                         <th>科目名</th>
                     </tr>
                 </thead>
                 <tbody>
                 
                 ${subject }
-                     <%
-                        SubjectDAO subjectDAO = new SubjectDAO();
-                        List<Subject> subjects = null;
-                        try {
-                            School school = new School();
-                            school.setCd("oom"); 
-                            subjects = SubjectDAO.getsub(school);  
-                        } catch (Exception e) {
-                            out.println("<tr><td colspan='3'>Error: " + e.getMessage() + "</td></tr>");
-                        }
-                        if (subjects != null && !subjects.isEmpty()) {
-                            request.setAttribute("subjects", subjects);
-                        } else {
-                            out.println("<tr><td colspan='3'>No subjects found</td></tr>");
-                        }
-                    %>
+                    
 <!--
 	<h1>科目管理</h1>
 	
@@ -74,8 +63,10 @@
                         </tr>
                     </c:forEach>
                 </tbody>
+                
             </table>
-
+				<a href="subject_update.jsp">変更</a><br>
+				 <a href="subject_delete.jsp">削除</a>
         </body>
         </html>
     </div>
