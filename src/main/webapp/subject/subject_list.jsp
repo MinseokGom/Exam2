@@ -13,23 +13,26 @@
     <div style="flex: 2;">
         <!DOCTYPE html>
         <html>
+        
         <head>
             <meta charset="UTF-8">
             <title>得点管理システム</title>
             <style>
-                /* Add your custom CSS styles here */
-                /* For example, adjust font size, colors, layout, etc. */
+              .right {
+   				 text-align: right;
+						}
             </style>
         </head>
         <body>
 
             <h1>科目管理</h1>
+            <div class="right">
             <a href="subject_create.jsp">新規登録</a>
+            </div>
             <table border="1">
                 <thead>
                     <tr>
-                        <th>学校コード</th>
-                        <th>科目番号</th>
+                        <th>科目コード</th>
                         <th>科目名</th>
                     </tr>
                 </thead>
